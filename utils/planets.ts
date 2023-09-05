@@ -79,7 +79,7 @@ export const solarSystemElements = [
         radius: 0.9 * EARTH_RADIUS,
         orbit: {
             period: 84 * EARTH_PERIOD,
-            a: 4 * AU,
+            a: 3.6 * AU,
             eccentricity: 0.046
         },
         color: '#26BEC5',
@@ -89,7 +89,7 @@ export const solarSystemElements = [
         radius: 0.85 * EARTH_RADIUS,
         orbit: {
             period: 164.8 * EARTH_PERIOD,
-            a: 5 * AU,
+            a: 4 * AU,
             eccentricity: 0.010
         },
         color: "#2671C5",

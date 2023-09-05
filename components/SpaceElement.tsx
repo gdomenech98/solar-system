@@ -1,7 +1,9 @@
-import {OrbitInterface} from "@/types";
-import { computeSemiMinorAxis, calculateVelocity} from "@/utils/utils";
+import { OrbitInterface } from "@/types";
+import { computeSemiMinorAxis, calculateVelocity } from "@/utils/utils";
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber'
+import planets from "./planets";
+
 
 function SpaceElement(props) {
     const orbit: OrbitInterface = props.orbit;
@@ -21,7 +23,7 @@ function SpaceElement(props) {
             position={[x, 0, z]}
             key={props.key ?? Math.random() * 100}
         >
-            <sphereGeometry args={[props.radius, 50, 50]} />
+            {planets[props.name]()}
             <meshStandardMaterial color={props.color ?? 'white'} />
         </mesh>
     )

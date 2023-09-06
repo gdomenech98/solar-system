@@ -23,7 +23,7 @@ function SpaceElement(props) {
             position={[x, 0, z]}
             key={props.key ?? Math.random() * 100}
         >
-            {planets[props.name]({color: props.color})}
+            {planets[props.name]({})}
         </mesh>
     )
 }

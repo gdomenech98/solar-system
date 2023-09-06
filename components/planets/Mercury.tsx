@@ -9,7 +9,7 @@ export default function Model(props) {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
         <mesh>
-          <sphereGeometry args={[0.6, 30, 30]} />
+          <sphereGeometry args={[1, 30, 30]} />
           <meshStandardMaterial map={texture} />
         </mesh>
       </group>

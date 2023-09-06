@@ -19,7 +19,7 @@ export default function SolarSystem() {
         <pointLight position={[10, 10, 10]} />
         {
           solarSystemElements.map(element => (
-            <SpaceElement key={element.name} name={element.name} radius={element.radius} color={element.color} orbit={element.orbit} />
+            <SpaceElement key={element.name} name={element.name} color={element.color} orbit={element.orbit} />
           ))
         }
         {ENABLE_FLOOR && <Floor args={[1, 1]} />}

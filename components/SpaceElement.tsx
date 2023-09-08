@@ -2,6 +2,7 @@ import { OrbitInterface } from "@/types";
 import { computeSemiMinorAxis, calculateVelocity } from "@/utils/utils";
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber'
+import { useSelect } from '@react-three/drei';
 import planets from "./planets";
 
 
@@ -11,7 +12,8 @@ function SpaceElement(props) {
     const [t, setT] = useState(0);
     const x = orbit.a * Math.cos(t);
     const z = computeSemiMinorAxis(orbit.a, orbit.eccentricity) * Math.sin(t);
-
+    const selected = useSelect()
+    console.log('SELECTED: ', selected)
     useFrame((state, delta) => {
         const velocity = calculateVelocity(orbit.a, orbit.period)
         setT((prevT) => prevT + velocity);

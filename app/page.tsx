@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './page.module.css';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Select } from '@react-three/drei';
 import SpaceElement from '@components/SpaceElement';
 import { solarSystemElements } from '@/utils/planets';
 import Floor from '@/components/Floor';
@@ -14,17 +14,18 @@ export default function SolarSystem() {
   return (
     <div className={styles.scene}>
       <Canvas className={styles.canvas}>
-        <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[0, 0, 300]}/>
+        <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[0, 0, 300]} />
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        
-        {
-          solarSystemElements.map(element => (
-            <SpaceElement key={element.name} name={element.name} orbit={element.orbit} />
-          ))
-        }
+        <Select box>
+          {
+            solarSystemElements.map(element => (
+              <SpaceElement key={element.name} name={element.name} orbit={element.orbit} />
+            ))
+          }
+        </Select>
         {ENABLE_FLOOR && <Floor args={[1, 1]} />}
-        <OrbitControls camera={cameraRef.current}/>
+        <OrbitControls camera={cameraRef.current} />
       </Canvas>
     </div>
   )

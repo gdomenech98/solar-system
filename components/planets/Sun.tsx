@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useTexture } from "@react-three/drei";
 
 export default function Model(props) {
@@ -6,9 +6,10 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
-        <mesh>
+        <mesh receiveShadow={true} castShadow={true}>
           <sphereGeometry args={[30, 30, 30]} />
-          <meshStandardMaterial map={texture} />
+          <meshStandardMaterial map={texture} emissive={"#ffA000"} emissiveIntensity={0.15} />
+          <pointLight castShadow={true} intensity={100000} color="#ffA000" />
         </mesh>
       </group>
     </group>

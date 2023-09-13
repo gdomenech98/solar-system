@@ -3,7 +3,7 @@ import React from "react";
 import { useTexture } from "@react-three/drei";
 
 export default function Model(props) {
-  const texture = useTexture('/textures/mercury.jpg');
+  const texture = useTexture('/textures/mercury.jpeg');
 
   return (
     <group {...props} dispose={null}>

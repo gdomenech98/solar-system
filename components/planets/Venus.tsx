@@ -4,7 +4,7 @@ import Atmosphere from "../Atmosphere";
 import * as THREE from "three";
 
 export default function Model(props) {
-  const texture = useTexture('/textures/venus.jpg');
+  const texture = useTexture('/textures/venus.jpeg');
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>

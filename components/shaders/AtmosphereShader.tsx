@@ -1,3 +1,4 @@
+// SOURCE: https://codesandbox.io/s/planet-work-in-progress-forked-4qzgxp?file=/src/components/Canvas.js:262-273
 import * as THREE from "three";
 import { extend } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTexture } from "@react-three/drei";
+import Atmosphere from "../Atmosphere";
 import * as THREE from 'three';
-import '../shaders/AtmosphereShader';
 
 export default function Model(props) {
   const texture = useTexture('/textures/sun.jpg');
@@ -16,10 +16,7 @@ export default function Model(props) {
         <mesh key="sun-light">
           <pointLight castShadow={true} intensity={100000} color="#ffA000" />
         </mesh>
-        <mesh key="sun-atmosphere">
-          <sphereGeometry args={[40, 30, 30]} />
-          <atMaterial c={0.5} p={6} color={new THREE.Color("#ffA000")} />
-        </mesh>
+        <Atmosphere radius={40} c={0.5} p={6} color={new THREE.Color("#ffA000")}/>
       </group>
     </group>
   );

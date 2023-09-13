@@ -15,8 +15,7 @@ export default function SolarSystem() {
     <div className={styles.scene}>
       <Canvas className={styles.canvas} shadows={true}>
         <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[0, 0, 300]} />
-        <ambientLight castShadow={true} />
-        <pointLight castShadow={true} position={[10, 10, 10]} />
+        <ambientLight castShadow={true} intensity={1}/>
         <Select box>
           {
             solarSystemElements.map(element => (

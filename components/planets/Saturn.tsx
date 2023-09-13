@@ -9,7 +9,7 @@ import { Texture } from "three";
 import Ring from "../Ring";
 
 export default function Model(props) {
-  const planetTexture = useTexture("/textures/saturn.png")
+  const planetTexture = useTexture("/textures/saturn.jpeg")
 
   return (
     <group {...props} dispose={null}>

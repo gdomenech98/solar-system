@@ -9,11 +9,11 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
-        <mesh key="sun" receiveShadow={true} castShadow={true}>
+        <mesh key="sun">
           <sphereGeometry args={[30, 30, 30]} />
           <meshStandardMaterial map={texture} emissive={"#ffA000"} emissiveIntensity={0.05} />
         </mesh>
-        <mesh key="sun-light">
+        <mesh key="sun-light" castShadow={true}>
           <pointLight castShadow={true} intensity={100000} color="#ffA000" />
         </mesh>
         <Atmosphere radius={40} c={0.5} p={6} color={new THREE.Color("#ffA000")}/>

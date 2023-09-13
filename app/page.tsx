@@ -13,10 +13,10 @@ export default function SolarSystem() {
   const cameraRef = React.useRef(null);
   return (
     <div className={styles.scene}>
-      <Canvas className={styles.canvas}>
+      <Canvas className={styles.canvas} shadows={true}>
         <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[0, 0, 300]} />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
+        <ambientLight castShadow={true} />
+        <pointLight castShadow={true} position={[10, 10, 10]} />
         <Select box>
           {
             solarSystemElements.map(element => (

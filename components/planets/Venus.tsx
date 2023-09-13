@@ -8,7 +8,7 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
-        <mesh>
+        <mesh receiveShadow={true}>
           <sphereGeometry args={[1.5, 30, 30]} />
           <meshStandardMaterial map={texture} />
         </mesh>

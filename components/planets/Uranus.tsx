@@ -7,7 +7,7 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
-        <mesh>
+        <mesh receiveShadow={true} castShadow={true}>
           <sphereGeometry args={[5.5, 30, 30]} />
           <meshStandardMaterial map={planetTexture} />
         </mesh>

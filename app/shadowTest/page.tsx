@@ -32,12 +32,13 @@ export default function Test() {
 
 
 function Ring() {
+    const ringRef = useRef(null);
     const ringTexture = useTexture("/textures/saturn_rings.png")
     return (
         <group rotation={[Math.PI/2,0,0]}>
             <mesh receiveShadow={true} position={[0.3, 0, 0]} rotation={[Math.PI,0,0]}>
-                <ringGeometry args={[2, 3, 40, 3]} />
-                <meshStandardMaterial map={ringTexture} color={'white'} transparent={true}/>
+                <ringGeometry ref={ringRef} args={[2, 3, 40, 3]} />
+                <meshStandardMaterial map={ringTexture} side={THREE.DoubleSide}  color={'white'} transparent={true}/>
             </mesh>
         </group>
     )

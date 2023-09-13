@@ -10,11 +10,7 @@ import * as THREE from 'three';
 
 export default function Model(props) {
   const planetTexture = useTexture("/textures/saturn.png")
-  const ringTexture = useTexture("/textures/saturn_rings.png")
-  const ringRef = useRef(null);
-  const theta = 50;
-  const phi = 4;
-  
+
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
@@ -22,11 +18,40 @@ export default function Model(props) {
           <sphereGeometry args={[5.5, 30, 30]} />
           <meshStandardMaterial map={planetTexture} />
         </mesh>
-        <mesh key="rings" rotation={[Math.PI / 1.8, 0, 0]}>
-          <ringGeometry ref={ringRef} args={[8, 12, theta, phi]} />
-          <meshStandardMaterial map={ringTexture} side={THREE.DoubleSide} transparent={true} />
-        </mesh>
+        <Ring />
       </group>
     </group>
   );
+}
+
+function Ring() {
+  const ringRef = useRef(null);
+  const ringTexture = useTexture("/textures/saturn_rings.png")
+
+  const innerRadius = 8;
+  const outerRadius = 12;
+  const phi = 1;
+  const theta = 64;
+  const threshHold = (innerRadius + outerRadius) / 2
+
+  useEffect(() => {
+    const geometry = ringRef.current;
+    if (geometry) {
+      var pos = geometry.attributes.position;
+      var v3 = new THREE.Vector3();
+      for (let i = 0; i < pos.count; i++) {
+        v3.fromBufferAttribute(pos, i);
+        geometry.attributes.uv.setXY(i, v3.length() < threshHold ? 0 : 1, 1);
+      };
+    }
+  }, [ringRef.current])
+
+  return (
+    <group rotation={[Math.PI / 1.8, 0, 0]}>
+      <mesh receiveShadow={true} >
+        <ringGeometry ref={ringRef} args={[innerRadius, outerRadius, theta, phi]} />
+        <meshStandardMaterial map={ringTexture} side={THREE.DoubleSide} color={'white'} transparent={true} />
+      </mesh>
+    </group>
+  )
 }

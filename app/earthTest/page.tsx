@@ -7,7 +7,7 @@ import Floor from '@/components/Floor';
 import Scene from './components/Scene';
 
 const ENABLE_FLOOR = true;
-
+/* SOURCE: https://github.com/matiasngf/portfolio/tree/main/packages/experiments/earth*/
 export default function Test() {
     const cameraRef = React.useRef(null);
 

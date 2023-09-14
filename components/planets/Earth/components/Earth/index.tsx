@@ -1,8 +1,6 @@
-import { Sphere } from "@react-three/drei";
+import { Sphere, useTexture } from "@react-three/drei";
 import { SRGBColorSpace, ShaderMaterial, Vector3 } from "three";
-import { TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
-
 import { earthFragmentShader, earthVertexShader } from "./shaders";
 import { useEffect, useRef } from "react";
 import Atmosphere from "../Atmosphere";
@@ -19,8 +17,7 @@ export interface EarthProps {
 }
 
 const Earth = ({ lightDirection }: EarthProps) => {
-  const [earthDayTexture, nightTexture, cloudTexture] = useLoader(
-    TextureLoader,
+  const [earthDayTexture, nightTexture, cloudTexture] = useTexture(
     [
       "/textures/earth_daymap.jpg",
       "/textures/earth_nightmap.jpg",
@@ -44,6 +41,7 @@ const Earth = ({ lightDirection }: EarthProps) => {
   useFrame((_, delta) => {
     uniformsRef.current.uTime.value += delta;
   });
+  
   useEffect(() => {
     uniformsRef.current.lightDirection.value.copy(lightDirection);
   }, [lightDirection]);

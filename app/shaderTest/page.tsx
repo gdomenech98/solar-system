@@ -4,7 +4,7 @@ import styles from '../page.module.css';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Plane, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
-import Shader1 from './shaders/shader1';
+import ColorShader from './shaders/ColorShader';
 import Shader2 from './shaders/shader2';
 
 export default function Test() {
@@ -29,7 +29,7 @@ function Element1() { // Default shader
         <group position={[0, 0, 0]}>
             <mesh >
                 <sphereGeometry args={[1.5, 30, 30]}/>
-                <Shader1/>
+                <ColorShader/>
             </mesh>
         </group>
     )

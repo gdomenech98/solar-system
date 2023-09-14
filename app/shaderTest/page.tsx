@@ -17,7 +17,6 @@ export default function Test() {
                 <ambientLight castShadow={true} intensity={0.7} />
                 <pointLight castShadow={true} color={new THREE.Color('#ffffff')} position={[3, 2, 10]} intensity={1000} />
                 <Element1/>
-                <Element2/>
                 <OrbitControls camera={cameraRef.current} />
             </Canvas>
         </div>
@@ -30,23 +29,6 @@ function Element1() { // Default shader
             <mesh >
                 <sphereGeometry args={[1.5, 30, 30]}/>
                 <ColorShader/>
-            </mesh>
-        </group>
-    )
-}
-
-
-function Element2() { // PLANET
-    const texture = useTexture('/textures/venus.jpeg');
-    return (
-        <group position={[4, 0, 0]}>
-            <mesh receiveShadow={true}>
-                <sphereGeometry args={[1.5, 30, 30]} />
-                <meshStandardMaterial map={texture} />
-            </mesh>
-            <mesh receiveShadow={true}>
-                <sphereGeometry args={[1.5, 30, 30]}/>
-                <Shader2/>
             </mesh>
         </group>
     )

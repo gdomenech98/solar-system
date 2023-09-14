@@ -1,4 +1,4 @@
-import Earth from "./Earth";
+import Earth from "./Earth/index";
 import Jupiter from "./Jupiter";
 import Mars from "./Mars";
 import Mercury from "./Mercury";
@@ -12,7 +12,8 @@ export default {
     sun: Sun,
     mercury: Mercury,
     venus: Venus,
-    earth: Earth,
+    // earth: Earth,
+    earth: () => {},
     mars: Mars,
     jupiter: Jupiter,
     saturn: Saturn,

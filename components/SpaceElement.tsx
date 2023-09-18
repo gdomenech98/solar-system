@@ -10,24 +10,26 @@ function SpaceElement(props) {
     const orbit: OrbitInterface = props.orbit;
     const planetRef = useRef(null);
     const [t, setT] = useState(0);
-    const x = orbit.a * Math.cos(t);
-    const z = computeSemiMinorAxis(orbit.a, orbit.eccentricity) * Math.sin(t);
+
     const selected = useSelect()
-    
+
     useEffect(() => {
         console.log('SELECTED: ', selected)
     },[])
 
     useFrame((state, delta) => {
-        const velocity = calculateVelocity(orbit.a, orbit.period)
-        setT((prevT) => prevT + velocity);
+        if (planetRef.current) {
+            const velocity = calculateVelocity(orbit.a, orbit.period)
+            const newT = t + velocity;
+            planetRef.current.position.x = orbit.a * Math.cos(newT);
+            planetRef.current.position.z = computeSemiMinorAxis(orbit.a, orbit.eccentricity) * Math.sin(newT);
+            setT(newT)
+        }
     })
 
     return (
         <mesh
             ref={planetRef}
-            position={[x, 0, z]}
-            key={props.key ?? Math.random() * 100}
         >
             {planets[props.name]({})}
         </mesh>

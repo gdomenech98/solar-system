@@ -32,11 +32,7 @@ function SpaceElement(props) {
         <mesh
             ref={planetRef}
         >
-            {
-                props.name == 'earth'
-                    ? <Earth/>  
-                    : planets[props.name]()
-            }
+            { planets[props.name]() }
         </mesh>
     )
 }

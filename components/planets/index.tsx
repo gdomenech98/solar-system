@@ -1,4 +1,4 @@
-import Earth from "./Earth/index";
+import Earth from "./Earth";
 import Jupiter from "./Jupiter";
 import Mars from "./Mars";
 import Mercury from "./Mercury";

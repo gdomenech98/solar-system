@@ -2,7 +2,7 @@ import React from 'react';
 import { useTexture } from "@react-three/drei";
 import Ring from '../Ring';
 
-export default function Model(props) {
+const Uranus = (props) => {
   const planetTexture = useTexture("/textures/uranus.png")
   return (
     <group {...props} dispose={null}>
@@ -18,3 +18,5 @@ export default function Model(props) {
     </group>
   );
 }
+
+export default Uranus;

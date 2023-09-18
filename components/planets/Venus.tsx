@@ -3,7 +3,7 @@ import { useTexture } from "@react-three/drei";
 import Atmosphere from "../Atmosphere";
 import * as THREE from "three";
 
-export default function Model(props) {
+const Venus = (props) => {
   const texture = useTexture('/textures/venus.jpeg');
   const atmosphereTexture = useTexture('/textures/venus_atmosphere.jpeg')
   return (
@@ -24,3 +24,5 @@ export default function Model(props) {
     </group>
   );
 }
+
+export default Venus

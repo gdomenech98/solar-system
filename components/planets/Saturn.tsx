@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import { Texture } from "three";
 import Ring from "../Ring";
 
-export default function Model(props) {
+const Saturn = (props) => {
   const planetTexture = useTexture("/textures/saturn.jpeg")
 
   return (
@@ -26,3 +26,5 @@ export default function Model(props) {
   );
 }
 
+
+export default Saturn

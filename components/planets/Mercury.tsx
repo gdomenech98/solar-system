@@ -2,7 +2,7 @@
 import React from "react";
 import { useTexture } from "@react-three/drei";
 
-export default function Model(props) {
+const Mercury = (props) => {
   const texture = useTexture('/textures/mercury.jpeg');
 
   return (
@@ -16,3 +16,5 @@ export default function Model(props) {
     </group>
   );
 }
+
+export default Mercury

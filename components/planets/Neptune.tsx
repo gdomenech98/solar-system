@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useTexture } from "@react-three/drei";
 
-export default function Model(props) {
+const Neptune = (props) => {
     const texture = useTexture("/textures/neptune.jpg")
     return (
         <group {...props} dispose={null}>
@@ -14,3 +14,5 @@ export default function Model(props) {
         </group>
     );
 }
+
+export default Neptune

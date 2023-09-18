@@ -3,7 +3,7 @@ import { useTexture } from "@react-three/drei";
 import Atmosphere from "../Atmosphere";
 import * as THREE from "three";
 
-export default function Model(props) {
+const Jupiter = (props) => {
   const texture = useTexture("/textures/jupiter.jpeg")
   return (
     <group {...props} dispose={null}>
@@ -17,3 +17,5 @@ export default function Model(props) {
     </group>
   );
 }
+
+export default Jupiter;

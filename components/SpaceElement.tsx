@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { useSelect } from '@react-three/drei';
 import planets from "./planets";
+import Earth from "./planets/Earth";
 
 
 function SpaceElement(props) {
@@ -15,7 +16,7 @@ function SpaceElement(props) {
 
     useEffect(() => {
         console.log('SELECTED: ', selected)
-    },[])
+    }, [])
 
     useFrame((state, delta) => {
         if (planetRef.current) {
@@ -31,7 +32,11 @@ function SpaceElement(props) {
         <mesh
             ref={planetRef}
         >
-            {planets[props.name]({})}
+            {
+                props.name == 'earth'
+                    ? <Earth/>  
+                    : planets[props.name]()
+            }
         </mesh>
     )
 }

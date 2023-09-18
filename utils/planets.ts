@@ -27,14 +27,14 @@ export const solarSystemElements = [
             eccentricity: 0.007
         }
     },
-    // {
-    //     name: 'earth',
-    //     orbit: {
-    //         period: 1 * EARTH_PERIOD,
-    //         a: 1 * AU,
-    //         eccentricity: 0.017
-    //     }
-    // },
+    {
+        name: 'earth',
+        orbit: {
+            period: 1 * EARTH_PERIOD,
+            a: 1 * AU,
+            eccentricity: 0.017
+        }
+    },
     {
         name: 'mars',
         orbit: {

@@ -1,7 +1,7 @@
 import { OrbitInterface } from "@/types";
 import { computeSemiMinorAxis, calculateVelocity } from "@/utils/utils";
 import React, { useRef, useState, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { useSelect } from '@react-three/drei';
 import planets from "./planets";
 
@@ -13,8 +13,11 @@ function SpaceElement(props) {
 
     const selected = useSelect()
 
-    useEffect(() => {
-        console.log('SELECTED: ', selected)
+    useEffect(() => { 
+        const selectedElement = selected[0];
+        if(selectedElement) {
+            // Set target of controls to the selected object
+        }
     }, [selected])
 
     useFrame((state, delta) => {

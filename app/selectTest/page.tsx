@@ -13,12 +13,15 @@ export default function Test() {
 
     return (
         <div className={styles.scene}>
-            <Canvas className={styles.canvas}>
-                <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[0, 0, 300]} />
+            <Canvas className={styles.canvas} shadows={true}>
+                <PerspectiveCamera makeDefault={true} ref={cameraRef} position={[3, 4, 10]} />
                 <ambientLight />
-                <pointLight position={[10, 10, 10]} />
+                <pointLight castShadow={true} intensity={100} position={[3, 4, 10]} />
                 <Select multiple box>
-                    <Cube />
+                    <Cube name={"cube-pink"} color={"#ff00ff"} position={[0,0,0]} />
+                    <Cube name={"cube-yellow"}color={"#ffff00"} position={[1.5,0,0]} />
+                    <Cube name={"cube-blue"} color={"#00ffff"} position={[-1.5,0,0]} />
+                    <Cube name={"cube-white"} color={"#f0f0f0"} position={[0,0,1.5]} />
                 </Select>
                 {ENABLE_FLOOR && <Floor args={[1, 1]} />}
                 <OrbitControls camera={cameraRef.current} />

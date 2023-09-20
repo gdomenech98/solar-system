@@ -1,5 +1,5 @@
 import { Vector3 } from 'three'
-export function zoomToObject(object, camera, controls) { 
+export function zoomToObject(object, camera, controls, lerpAlpha = 0.1) { 
     // Fits camera and controls to specific object
     // SOURCE: https://discourse.threejs.org/t/camera-zoom-to-fit-object/936/3
     let vFoV = camera.getEffectiveFOV();
@@ -24,8 +24,9 @@ export function zoomToObject(object, camera, controls) {
     let cameraOffs = cameraDir.clone();
     cameraOffs.multiplyScalar(-FL);
     let newCameraPos = bsWorld.clone().add(cameraOffs);
-    camera.position.copy(newCameraPos);
+    camera.position.lerp(newCameraPos, lerpAlpha);
     camera.lookAt(bsWorld);
     controls.target.copy(bsWorld);
     controls.update();
+    return newCameraPos
 }

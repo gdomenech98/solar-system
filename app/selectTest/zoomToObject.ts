@@ -26,6 +26,7 @@ export function zoomToObject(object, camera, controls, lerpAlpha = 0.1) {
     let newCameraPos = bsWorld.clone().add(cameraOffs);
     camera.position.lerp(newCameraPos, lerpAlpha);
     camera.lookAt(bsWorld);
+    camera.updateProjectionMatrix();
     controls.target.copy(bsWorld);
     controls.update();
     return newCameraPos

@@ -17,7 +17,7 @@ export function zoomToObject(object, camera, controls, lerpAlpha = 0.1) {
 
     let th = FoV2 * Math.PI / 180.0;
     let sina = Math.sin(th);
-    let R = bs.radius;
+    let R = bs.radius + bs.radius*0.75;
     let FL = R / sina;
     let cameraDir = new Vector3();
     camera.getWorldDirection(cameraDir);

@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './page.module.css';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Select } from '@react-three/drei';
 import SpaceElement from '@components/SpaceElement';
 import { solarSystemElements } from '@/utils/planets';
 import Floor from '@/components/Floor';
 import { zoomToObject } from '@/utils/zoomToObject';
-import { areSameVectors } from '@/utils/utils';
 
 const ENABLE_FLOOR = false;
 export default () => {
-    let destinationPos;
     const cameraRef = useRef(null);
     const controlsRef = useRef(null);
     const [selectedElement, setSelectedElement] = useState<any>();
@@ -18,17 +15,12 @@ export default () => {
 
     useFrame(({ camera }) => {
         const controls = controlsRef.current
-        const finishMove = areSameVectors(camera.position, destinationPos)
-        if (selectedElement && !ended.current && !finishMove) {
-            destinationPos = zoomToObject(selectedElement, camera, controls, 0.05)
-        } else {
-            ended.current = true
-        }
+        if (selectedElement) {
+            zoomToObject(selectedElement, camera, controls, 0.05)
+        } 
     })
 
-    useEffect(() => {
-        ended.current = false;
-    }, [selectedElement])
+
 
     return (
         <>

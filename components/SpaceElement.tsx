@@ -11,15 +11,6 @@ function SpaceElement(props) {
     const planetRef = useRef(null);
     const [t, setT] = useState(0);
 
-    const selected = useSelect()
-
-    useEffect(() => { 
-        const selectedElement = selected[0];
-        if(selectedElement) {
-            // Set target of controls to the selected object
-        }
-    }, [selected])
-
     useFrame((state, delta) => {
         if (planetRef.current) {
             const velocity = calculateVelocity(orbit.a, orbit.period)

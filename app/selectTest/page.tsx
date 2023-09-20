@@ -14,29 +14,41 @@ export default function Test() {
     const controlsRef = useRef(null);
     const [selectedElement, setSelectedElement] = useState<any>();
 
+    function zoomToObject(object, camera, controls) { 
+        // Fits camera and controls to specific object
+        // SOURCE: https://discourse.threejs.org/t/camera-zoom-to-fit-object/936/3
+        let vFoV = camera.getEffectiveFOV();
+        let hFoV = camera.fov * camera.aspect;
+
+        let FoV = Math.min(vFoV, hFoV);
+        let FoV2 = FoV / 2;
+
+        let dir = new Vector3();
+        camera.getWorldDirection(dir);
+
+        let bs = object.geometry.boundingSphere;
+        let bsWorld = bs.center.clone();
+        object.localToWorld(bsWorld);
+
+        let th = FoV2 * Math.PI / 180.0;
+        let sina = Math.sin(th);
+        let R = bs.radius;
+        let FL = R / sina;
+        let cameraDir = new Vector3();
+        camera.getWorldDirection(cameraDir);
+        let cameraOffs = cameraDir.clone();
+        cameraOffs.multiplyScalar(-FL);
+        let newCameraPos = bsWorld.clone().add(cameraOffs);
+        camera.position.copy(newCameraPos);
+        camera.lookAt(bsWorld);
+        controls.target.copy(bsWorld);
+        controls.update();
+    }
     useEffect(() => {
         const camera = cameraRef.current;
-        const controls = controlsRef.current;
+        const controls = controlsRef.current
         if (selectedElement && camera) {
-            // Fit camera to object: https://discourse.threejs.org/t/camera-zoom-to-fit-object/936/3
-            const offset = 1.25;
-            const boundingBox = new Box3();
-            boundingBox.setFromObject(selectedElement); // get bounding box of object
-            const center = boundingBox.getCenter(new Vector3(0, 0, 0));
-            const size = boundingBox.getSize(new Vector3(0, 0, 0));
-            // get the max side of the bounding box (fits to width OR height as needed )
-            const maxDim = Math.max(size.x, size.y, size.z);
-            const fov = camera.fov * (Math.PI / 180);
-            let cameraZ = Math.abs(maxDim / 4 * Math.tan(fov * 2));
-            cameraZ *= offset; // zoom out a little so that objects don't fill the screen
-            camera.position.z = cameraZ;
-            camera.updateProjectionMatrix();
-            if(controls) {
-                controls.target = center;
-            }else {
-                camera.lookAt(center)
-            }
-            // controls.target = selectedElement.position
+            zoomToObject(selectedElement, camera, controls)
         }
     }, [selectedElement]);
 

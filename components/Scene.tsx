@@ -17,6 +17,7 @@ export default () => {
         if (selectedElement) {
             zoomToObject(selectedElement, camera, controls, 0.05)
         }
+       
     })
 
     return (
@@ -44,11 +45,11 @@ export default () => {
             />
             {ENABLE_FLOOR && <Floor args={[1, 1]} />}
             <OrbitControls
-                ref={controlsRef} 
-                camera={cameraRef.current} 
-                maxDistance={400} 
-                minDistance={10} 
-                />
+                ref={controlsRef}
+                camera={cameraRef.current}
+                maxDistance={400}
+                minDistance={10}
+            />
         </>
     )
 }

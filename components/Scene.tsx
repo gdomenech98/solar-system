@@ -43,7 +43,12 @@ export default () => {
                 fade={false}                 // Hacer que las estrellas más lejanas sean más tenues
             />
             {ENABLE_FLOOR && <Floor args={[1, 1]} />}
-            <OrbitControls maxDistance={400} ref={controlsRef} camera={cameraRef.current} />
+            <OrbitControls
+                ref={controlsRef} 
+                camera={cameraRef.current} 
+                maxDistance={400} 
+                minDistance={10} 
+                />
         </>
     )
 }

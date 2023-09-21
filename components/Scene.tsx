@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Select } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Select, Stars } from '@react-three/drei';
 import SpaceElement from '@components/SpaceElement';
 import { solarSystemElements } from '@/utils/planets';
 import Floor from '@/components/Floor';
@@ -11,16 +11,13 @@ export default () => {
     const cameraRef = useRef(null);
     const controlsRef = useRef(null);
     const [selectedElement, setSelectedElement] = useState<any>();
-    const ended = useRef(false)
 
     useFrame(({ camera }) => {
         const controls = controlsRef.current
         if (selectedElement) {
             zoomToObject(selectedElement, camera, controls, 0.05)
-        } 
+        }
     })
-
-
 
     return (
         <>
@@ -37,8 +34,16 @@ export default () => {
                     ))
                 }
             </Select>
+            <Stars
+                radius={200}           // Radio del espacio donde se distribuyen las estrellas
+                depth={100}             // Profundidad (desde el centro)
+                count={15000}           // Cantidad de estrellas
+                factor={4}             // Tamaño de las estrellas
+                saturation={1000}         // Saturación del color
+                fade={false}                 // Hacer que las estrellas más lejanas sean más tenues
+            />
             {ENABLE_FLOOR && <Floor args={[1, 1]} />}
-            <OrbitControls ref={controlsRef} camera={cameraRef.current} />
+            <OrbitControls maxDistance={400} ref={controlsRef} camera={cameraRef.current} />
         </>
     )
 }

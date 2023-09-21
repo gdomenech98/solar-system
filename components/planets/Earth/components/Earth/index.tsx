@@ -47,7 +47,7 @@ const Earth = ({ lightDirection }: EarthProps) => {
   }, [lightDirection]);
 
   return (
-    <Sphere args={[1.84, verteces, verteces]}>
+    <Sphere args={[5, verteces, verteces]}>
       <shaderMaterial
         vertexShader={earthVertexShader}
         fragmentShader={earthFragmentShader}

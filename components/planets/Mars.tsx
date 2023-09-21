@@ -7,7 +7,7 @@ const Mars = (props) => {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
         <mesh receiveShadow={true}>
-          <sphereGeometry args={[1.25, 30, 30]} />
+          <sphereGeometry args={[4.5, 30, 30]} />
           <meshStandardMaterial map={texture} />
         </mesh>
       </group>

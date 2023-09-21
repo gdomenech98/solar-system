@@ -10,11 +10,11 @@ const Venus = (props) => {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
         <mesh receiveShadow={true}>
-          <sphereGeometry args={[1.5, 30, 30]} />
+          <sphereGeometry args={[4, 30, 30]} />
           <meshStandardMaterial map={texture} />
         </mesh>
         <mesh receiveShadow={true}>
-          <sphereGeometry args={[1.6, 30, 30]}/>
+          <sphereGeometry args={[4, 30, 30]}/>
           <meshStandardMaterial map={atmosphereTexture} opacity={0.4} transparent={true}/>
         </mesh>
 

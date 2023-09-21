@@ -10,11 +10,11 @@ const Sun = (props) => {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
         <mesh key="sun">
-          <sphereGeometry args={[30, 30, 30]} />
+          <sphereGeometry args={[15, 30, 30]} />
           <meshStandardMaterial map={texture} />
         </mesh>
         <pointLight castShadow={true} intensity={100000} color="#ffA000" />
-        <Atmosphere radius={40} c={0.5} p={6} color={new THREE.Color("#ffA000")} />
+        <Atmosphere radius={18} c={0.5} p={6} color={new THREE.Color("#ffA000")} />
       </group>
     </group>
   );

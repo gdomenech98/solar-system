@@ -15,11 +15,11 @@ const Saturn = (props) => {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]}>
         <mesh receiveShadow={true} castShadow={true}>
-          <sphereGeometry args={[5.5, 30, 30]} />
+          <sphereGeometry args={[7.5, 30, 30]} />
           <meshStandardMaterial map={planetTexture} />
         </mesh>
         <group rotation={[Math.PI / 1.8, 0, 0]}>
-          <Ring args={[8,12]} textureUrl={"/textures/saturn_rings.png"}/>
+          <Ring args={[10,14]} textureUrl={"/textures/saturn_rings.png"}/>
         </group>
       </group>
     </group>

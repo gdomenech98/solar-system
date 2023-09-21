@@ -1,6 +1,5 @@
-export const EARTH_RADIUS = 10;
-export const AU = 10 * EARTH_RADIUS;
-export const EARTH_PERIOD = 100000;
+export const AU = 110;
+export const EARTH_PERIOD = 250000;
 
 export const solarSystemElements = [
     {
@@ -15,7 +14,7 @@ export const solarSystemElements = [
         name: 'mercury',
         orbit: {
             period: 0.24 * EARTH_PERIOD,
-            a: 0.39 * AU,
+            a: 0.59 * AU,
             eccentricity: 0.206
         }
     },
@@ -23,7 +22,7 @@ export const solarSystemElements = [
         name: 'venus',
         orbit: {
             period: 0.62 * EARTH_PERIOD,
-            a: 0.72 * AU,
+            a: 0.92 * AU,
             eccentricity: 0.007
         }
     },
@@ -31,7 +30,7 @@ export const solarSystemElements = [
         name: 'earth',
         orbit: {
             period: 1 * EARTH_PERIOD,
-            a: 1 * AU,
+            a: 1.2 * AU,
             eccentricity: 0.017
         }
     },
@@ -39,7 +38,7 @@ export const solarSystemElements = [
         name: 'mars',
         orbit: {
             period: 1.88 * EARTH_PERIOD,
-            a: 1.2 * AU,
+            a: 1.4 * AU,
             eccentricity: 0.093
         }
     },
@@ -47,7 +46,7 @@ export const solarSystemElements = [
         name: 'jupiter',
         orbit: {
             period: 11.86 * EARTH_PERIOD,
-            a: 1.4 * AU,
+            a: 1.6 * AU,
             eccentricity: 0.049
         }
     },
@@ -55,7 +54,7 @@ export const solarSystemElements = [
         name: 'saturn',
         orbit: {
             period: 29.46 * EARTH_PERIOD,
-            a: 1.7 * AU,
+            a: 1.9 * AU,
             eccentricity: 0.056
         }
     },
@@ -63,7 +62,7 @@ export const solarSystemElements = [
         name: 'uranus',
         orbit: {
             period: 84 * EARTH_PERIOD,
-            a: 2 * AU,
+            a: 2.2 * AU,
             eccentricity: 0.046
         }
     },
@@ -71,7 +70,7 @@ export const solarSystemElements = [
         name: 'neptune',
         orbit: {
             period: 164.8 * EARTH_PERIOD,
-            a: 2.5 * AU,
+            a: 2.7 * AU,
             eccentricity: 0.010
         }
     },

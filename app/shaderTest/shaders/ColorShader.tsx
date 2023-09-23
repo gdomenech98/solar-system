@@ -30,7 +30,7 @@ export function vertexShader() {
     `
 }
 
-export default (props) => {
+const ColorShader = (props) => {
     return (
         <shaderMaterial
             uniforms={uniforms}
@@ -38,3 +38,5 @@ export default (props) => {
             vertexShader={vertexShader()}
         />)
 }
+
+export default ColorShader

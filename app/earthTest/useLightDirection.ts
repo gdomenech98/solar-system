@@ -10,7 +10,7 @@ const initialSunRotation = new Vector3(1, 0, 0).applyAxisAngle(
 );
 
 export const useLightDirection = () => {
-  const sunRotationSpring = useSpring(0, { velocity: 1, bounce: 0 });
+  const sunRotationSpring: any = useSpring(0, { velocity: 1, bounce: 0 });
 
   const [lightDirection, setLightDirection] = useState<Vector3>(
     initialSunRotation.clone()

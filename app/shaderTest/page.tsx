@@ -5,7 +5,6 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Plane, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import ColorShader from './shaders/ColorShader';
-import Shader2 from './shaders/shader2';
 
 export default function Test() {
     const cameraRef = React.useRef(null);

@@ -7,7 +7,7 @@ import Floor from '@/components/Floor';
 import { zoomToObject } from '@/utils/zoomToObject';
 
 const ENABLE_FLOOR = false;
-export default () => {
+const Scene = () => {
     const cameraRef = useRef(null);
     const controlsRef = useRef(null);
     const [selectedElement, setSelectedElement] = useState<any>();
@@ -53,3 +53,5 @@ export default () => {
         </>
     )
 }
+
+export default Scene;

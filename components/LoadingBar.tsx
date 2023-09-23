@@ -7,7 +7,7 @@ function LoadingBar() {
             <div style={{ width: '250px', height: '10px', background: '#555', borderRadius: '5px', overflow: 'hidden', boxShadow: '0px 0px 10px rgba(0,0,0,0.5)' }}>
                 <div style={{ width: `${progress}%`, height: '10px', background: 'white', borderRadius: '5px' }} />
             </div>
-            <div style={{ marginTop: '8px', textAlign: 'center' }}>Loading {progress}%</div>
+            <div style={{ marginTop: '8px', textAlign: 'center' }}>Loading {progress.toFixed(0)}%</div>
         </Html>
     );
 }
